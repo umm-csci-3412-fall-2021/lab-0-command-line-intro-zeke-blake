@@ -1,5 +1,9 @@
 #!/bin/bash
 
-mktemp
+mktemp -d
 
-tar -xvf $1 -C /cleaning/mktemp
+tar -xvf $1 -C /tmp
+
+'cleaning_$1'
+
+
