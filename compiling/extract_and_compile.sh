@@ -1,16 +1,12 @@
 #!/bin/bash
-<<<<<<< HEAD
-tar -xvjf foo.tar.bz2
-=======
 
-tar -xvf NthPrime.tgz
+tar -xf NthPrime.tgz
 
 cd NthPrime/
 
-gcc -C main.c
-gcc -C nth_prime.c
-gcc -C nth_prime.h
+gcc -c main.c nth_prime.c nth_prime.h
 
-nth_prime($1)
+gcc main.o nth_prime.o -o NthPrime
 
->>>>>>> 592764d870600da8322ae884c6abce6593bde401
+./NthPrime $1
+
