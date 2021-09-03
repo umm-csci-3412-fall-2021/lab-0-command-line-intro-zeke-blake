@@ -1,8 +1,8 @@
 #!/bin/bash
 
-mktemp -d
+mktemp -dp ~/Downloads/lab-0-command-line-intro-zeke-blake/cleaning
 
-tar -xvf $1 -C /tmp
+tar -zxvf $1 -C ~/Downloads/lab-0-command-line-intro-zeke-blake/cleaning/tmp.*
 
 'cleaning_$1'
 
