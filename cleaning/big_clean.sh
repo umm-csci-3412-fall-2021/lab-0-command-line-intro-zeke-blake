@@ -8,8 +8,12 @@ fname=$(basename $1 .tgz)
 
 cd tmp.*/$fname
 
-rm -f 'find . | xargs grep -l "DELETE ME!"'
+grep -lr "DELETE ME!" . | xargs rm
 
-TAR -czvf ("cleaning_" + $fname) ~/Downloads/lab-0-command-line-intro-zeke-blake/cleaning
+#for file in $(fgrep -l -r 'DELETE ME!' ../); do rm "$file"; done
+
+zname="'cleaning_' + ${fname}"
+
+tar -czvf $zname -C ~/Downloads/lab-0-command-line-intro-zeke-blake/cleaning
 
 
