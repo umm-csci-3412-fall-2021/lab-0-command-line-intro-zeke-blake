@@ -8,10 +8,12 @@ mktemp -d
 
 tar -zxf "$1" -C /tmp/tmp.*
 
-cd /tmp/tmp.*/"$fname"
+cd /tmp/tmp.*/"$fname" || exit
 
 grep -lr "DELETE ME!" | xargs rm
 
-tar -czf "$zname".tgz file_*
+cd ..
+
+tar -czf "$zname".tgz "$fname"
 
 mv "$zname".tgz ~/Downloads/lab-0-command-line-intro-zeke-blake/cleaning
