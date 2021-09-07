@@ -1,19 +1,17 @@
 #!/bin/bash
 
-mktemp -dp ~/Downloads/lab-0-command-line-intro-zeke-blake/cleaning
+fname=$(basename "$1" .tgz)
 
-tar -zxvf $1 -C ~/Downloads/lab-0-command-line-intro-zeke-blake/cleaning/tmp.*
+zname="cleaned_${fname}"
 
-fname=$(basename $1 .tgz)
+mktemp -d
 
-cd tmp.*/$fname
+tar -zxf "$1" -C /tmp/tmp.*
 
-grep -lr "DELETE ME!" . | xargs rm
+cd /tmp/tmp.*/"$fname"
 
-#for file in $(fgrep -l -r 'DELETE ME!' ../); do rm "$file"; done
+grep -lr "DELETE ME!" | xargs rm
 
-zname="'cleaning_' + ${fname}"
+tar -czf "$zname".tgz file_*
 
-tar -czvf $zname -C ~/Downloads/lab-0-command-line-intro-zeke-blake/cleaning
-
-
+mv "$zname".tgz ~/Downloads/lab-0-command-line-intro-zeke-blake/cleaning
